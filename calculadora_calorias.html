@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Calorías</title>
+    <link rel="stylesheet" href="css/calculadoracaloriasstyles.css">
+    <link rel="stylesheet" href="css/sidebarstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>FlexiFit</h2>
+        </div>
+        <ul>
+            <li><a href="ejercicios.html"><i class="fas fa-dumbbell"></i> Ejercicios</a></li>
+            <li><a href="alimentacion.html"><i class="fas fa-apple-alt"></i> Alimentación</a></li>
+            <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+            <li><a href="calculadora_calorias.html"><i class="fas fa-calculator"></i> Calculadora</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="calorie-calculator">
+            <div class="input-section">
+                <input type="text" placeholder="Edad">
+                <select>
+                    <option value="">Genero</option>
+                    <option value="hombre">Hombre</option>
+                    <option value="mujer">Mujer</option>
+                </select>
+                <input type="text" placeholder="Peso (kgs)">
+                <input type="text" placeholder="Altura (cm)">
+                <select>
+                    <option value="">Objetivo</option>
+                    <option value="perder peso">Perder Peso</option>
+                    <option value="mantener peso">Mantener Peso</option>
+                    <option value="ganar peso">Ganar Peso</option>
+                </select>
+                <select>
+                    <option value="">Nivel de Actividad</option>
+                    <option value="sedentary">Sedentario</option>
+                    <option value="light">Ligero</option>
+                    <option value="moderate">Moderado</option>
+                    <option value="active">Activo</option>
+                    <option value="very active">Muy Activo</option>
+                </select>
+                <button class="calculate-btn">Calcular</button>
+            </div>
+            <div class="result-section">
+                <h2>Objetivo de ingesta diario</h2>
+                <div class="calories">-</div>
+                <p>Estos cálculos están basados en promedios.</p>
+                <div class="actions">
+                    <button class="view-details">View Details</button>
+                    <button>Save Results</button>
+                </div>
+            </div>
+            <div class="recomendaciones"></div>
+            <div class="plan-dieta"></div>
+        </div>
+    </main>
+    <script type="module" src="../scripts/calculadora_calorias.js"></script>
+</body>
+</html>

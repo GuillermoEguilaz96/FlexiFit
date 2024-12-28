@@ -1,53 +1,35 @@
-const sqlite3 = require('sqlite3').verbose();
+const mysql = require('mysql2/promise');
+
+// Configuración de la conexión
+const pool = mysql.createPool({
+    host: 'localhost',       // Dirección del servidor MySQL
+    port: 3306,              // Puerto (por defecto es 3306)
+    user: 'root',            // Usuario (ajusta según tu configuración)
+    password: 'Colmillo12',  // Contraseña
+    database: 'flexifit'     // Base de datos a utilizar
+});
 
 // Función para inicializar la base de datos
-function initializeDatabase() {
-    let db = new sqlite3.Database('./flexifit.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
-        if (err) {
-            console.error(err.message);
-        }
-        console.log('Conectado a la base de datos SQLite.');
-    });
+async function initializeDatabase() {
+    try {
+        const connection = await pool.getConnection();
+        console.log('Conexion exitosa a la base de datos MySQL');
 
-    // Crea una tabla de usuarios si no existe
-    db.run(`CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT UNIQUE,
-        password TEXT
-    )`, (err) => {
-        if (err) {
-            console.error('Error creando tabla:', err.message);
-        }
-    });
+        // Crear la tabla de usuarios si no existe
+        await connection.query(`
+            CREATE TABLE IF NOT EXISTS users (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                username VARCHAR(50) UNIQUE NOT NULL,
+                password VARCHAR(255) NOT NULL
+            );
+        `);
+        console.log('Tabla "users" verificada o creada.');
 
-    db.close((err) => {
-        if (err) {
-            console.error(err.message);
-        }
-        console.log('Cerrando la conexión a la base de datos.');
-    });
+        connection.release(); // Liberar la conexión
+    } catch (err) {
+        console.error('Error al inicializar la base de datos:', err.message);
+    }
 }
 
-// Función para añadir un nuevo usuario
-function addUser(username, password) {
-    let db = new sqlite3.Database('./flexifit.db', (err) => {
-        if (err) {
-            console.error(err.message);
-        }
-    });
-
-    db.run(`INSERT INTO users (username, password) VALUES (?, ?)`, [username, password], function(err) {
-        if (err) {
-            return console.error('Error añadiendo usuario:', err.message);
-        }
-        console.log(`Usuario añadido con ID: ${this.lastID}`);
-    });
-
-    db.close((err) => {
-        if (err) {
-            console.error(err.message);
-        }
-    });
-}
-
-module.exports = { addUser,initializeDatabase};
+// Exportar funciones para su uso en otras partes del proyecto
+module.exports = { initializeDatabase, pool };

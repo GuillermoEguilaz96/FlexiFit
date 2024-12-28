@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios por Grupo Muscular</title>
+    <link rel="stylesheet" href="css/ejerciciosstyles.css">
+    <link rel="stylesheet" href="css/sidebarstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>FlexiFit</h2>
+        </div>
+        <ul>
+            <li><a href="ejercicios.html"><i class="fas fa-dumbbell"></i> Ejercicios</a></li>
+            <li><a href="alimentacion.html"><i class="fas fa-apple-alt"></i> Alimentación</a></li>
+            <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+            <li><a href="calculadora_calorias.html"><i class="fas fa-calculator"></i> Calculadora</a></li>
+        </ul>
+    </nav>
+    <main>
+            <div class="container">
+                <header>
+                    <h1>Selecciona un grupo muscular y revisa sus ejercicios</h1>
+                </header>
+                <!-- Selector de grupo muscular -->
+                <div class="content">
+                    <h1>Selecciona un Grupo Muscular</h1>
+                    <select id="muscle-group">
+                        <option value="">--Selecciona un grupo muscular--</option>
+                        <option value="pecho">Pecho</option>
+                        <option value="espalda">Espalda</option>
+                        <option value="piernas">Piernas</option>
+                        <option value="biceps">Bíceps</option>
+                        <option value="triceps">Tríceps</option>
+                        <option value="hombros">Hombros</option>
+                    </select>
+                    <div id="exercise-list">
+                        <div class="exercise-grid">
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </main>
+                <script src="../scripts/ejercicios.js"></script>
+            </body>
+            </html>

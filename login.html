@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
     <title>FlexiFit - Login</title>
     <link rel="stylesheet" href="css\loginstyles.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <div class="login-container">
-      <h1>FLEXIFIT</h1>
-      <h2>Iniciar Sesión</h2>
+      <h1>FlexiFit</h1>
       <form id="login-form">
-        <input type="text" id="username" placeholder="Usuario" required>
-        <input type="password" id="password" placeholder="Contraseña" required>
+        <i class="fas fa-user" id="user-icon"></i><input type="text" id="username" placeholder="Usuario" required>
+        <i class="fas fa-lock" id="lock-icon"></i><input type="password" id="password" placeholder="Contraseña" required>
         <button type="submit">Iniciar sesión</button>
       </form>
       <p>¿No tienes cuenta? <a href="registro.html" style="color: #00b09b;">Regístrate</a></p>
