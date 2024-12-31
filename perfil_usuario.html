@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/perfil_usuario.css">
+    <link rel="stylesheet" href="css/sidebarstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Perfil de Usuario</title>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>FlexiFit</h2>
+        </div>
+        <ul>
+            <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+            <li><a href="ejercicios.html"><i class="fas fa-dumbbell"></i> Ejercicios</a></li>
+            <li><a href="alimentacion.html"><i class="fas fa-apple-alt"></i> Alimentación</a></li>
+            <li><a href="calculadora_calorias.html"><i class="fas fa-calculator"></i> Calculadora</a></li>
+            <li><a href="perfil_usuario.html"><i class="fas fa-user-circle"></i> Perfil</a></li>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <h1>Perfil de Usuario</h1>
+        </header>
+        <section id="user-info">
+            <img src="../imagenes/perfil.jpg" alt="Imagen de perfil" style="width: 100px; height: auto;" />
+            <h2>Información del Usuario</h2>
+            <form id="userProfileForm">
+                <label for="username">Nombre:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="improvements">Mejoras y Marcas Personales:</label>
+                <textarea id="improvements" name="improvements" rows="4"></textarea>
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </section>
+        <section id="actions">
+            <h2>Acciones</h2>
+            <button id="edit-profile">Editar Perfil</button>
+            <button class="logout">Cerrar Sesión</button>
+        </section>
+    </main>
+    <script src="../scripts/perfil.js"></script>
+</body>
+</html>
